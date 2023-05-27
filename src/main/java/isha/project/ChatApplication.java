@@ -61,7 +61,7 @@ public class ChatApplication {
         frame.add(messageScrollPane, BorderLayout.CENTER);
 
         // Welcome message
-        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. /help - To know more options to ask me How can I assist you?", false);
+        displayMessage("Bot", "Welcome to the chat! How can I assist you?", false);
 
         frame.setVisible(true);
     }
@@ -88,22 +88,28 @@ public class ChatApplication {
     }
 
     private void displayMessage(String sender, String message, boolean isUserMessage) {
-        JPanel messageWrapper = new JPanel();
-        messageWrapper.setLayout(new BorderLayout());
-        messageWrapper.setBorder(new EmptyBorder(5, 10, 5, 10));
         JTextArea messageTextArea = new JTextArea(message);
         messageTextArea.setEditable(false);
         messageTextArea.setLineWrap(true);
         messageTextArea.setWrapStyleWord(true);
         messageTextArea.setBackground(isUserMessage ? Color.decode("#DCF8C6") : Color.decode("#E2E2E2"));
-        messageTextArea.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        messageWrapper.add(messageTextArea, BorderLayout.CENTER);
+        messageTextArea.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        messageTextArea.setMargin(new Insets(5, 5, 5, 5));
+        messageTextArea.setFont(messageTextArea.getFont().deriveFont(Font.PLAIN));
+        messageTextArea.setMaximumSize(new Dimension(Integer.MAX_VALUE, messageTextArea.getPreferredSize().height));
 
         JLabel senderLabel = new JLabel(sender);
         senderLabel.setFont(senderLabel.getFont().deriveFont(Font.BOLD));
         JPanel senderPanel = new JPanel(new FlowLayout(isUserMessage ? FlowLayout.LEFT : FlowLayout.RIGHT));
         senderPanel.add(senderLabel);
+
+        JPanel messageWrapper = new JPanel(new BorderLayout());
+        messageWrapper.setBackground(isUserMessage ? Color.decode("#DCF8C6") : Color.decode("#E2E2E2"));
+        messageWrapper.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createEmptyBorder(5, 10, 5, 10),
+                BorderFactory.createLineBorder(Color.decode("#BFBFBF"), 1)));
         messageWrapper.add(senderPanel, BorderLayout.NORTH);
+        messageWrapper.add(messageTextArea, BorderLayout.CENTER);
 
         messagePanel.add(messageWrapper);
         messagePanel.revalidate();
