@@ -63,3 +63,15 @@ The project consists of the following files:
     handles user interactions.
  3. README.md: Documentation file explaining the project and how to use
     it.
+
+## Discord Chatbot Extension (In Progress)
+
+An extension of the Chat Application is being developed to create a Discord chatbot. The Discord chatbot will provide the same functionalities as the Chat Application but will be accessible within a Discord server.
+
+Specifications for the Discord chatbot extension:
+
+-   **Platform**: Discord
+-   **Programming Language**: JavaScript (using the Discord.js library)
+-   **Features**: Real-time chat interaction, command-based communication, integration with the Google Bard API for responses.
+
+The Discord chatbot extension is currently in development and is avaialaible in the  following link [https://github.com/kiaririka/HealthDiscordBotMaven] will be deployed soon.
