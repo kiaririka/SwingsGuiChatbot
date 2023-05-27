@@ -22,5 +22,37 @@
   {
     "message": "What are some tips for maintaining a healthy lifestyle?",
     "reply": "To maintain a healthy lifestyle, it's important to eat a balanced diet rich in fruits, vegetables, lean proteins, and whole grains. Stay physically active, get enough sleep, manage stress, avoid smoking and excessive alcohol consumption, and stay hydrated. Regular check-ups with a healthcare provider are also essential."
+  },
+  {
+    "message": "What is the capital of France?",
+    "reply": "The capital of France is Paris."
+  },
+  {
+    "message": "How do I reset my password?",
+    "reply": "To reset your password, go to the login page and click on the 'Forgot Password' link. Follow the instructions to reset your password."
+  },
+  {
+    "message": "What are the benefits of exercise?",
+    "reply": "Exercise has numerous benefits, including improved cardiovascular health, increased strength and flexibility, enhanced mood, and better weight management."
+  },
+  {
+    "message": "How long does it take to learn a new programming language?",
+    "reply": "The time it takes to learn a new programming language depends on various factors such as your prior experience, the complexity of the language, and the time and effort you invest in learning. With consistent practice and dedication, you can acquire basic proficiency within a few months."
+  },
+  {
+    "message": "What's your favorite movie?",
+    "reply": "As a chatbot, I don't have personal preferences. However, there are many great movies out there. What genre of movies do you enjoy?"
+  },
+  {
+    "message": "Do you have any pets?",
+    "reply": "Since I am a virtual assistant, I don't have physical pets. But I can help you with any questions or information related to pets if you'd like!"
+  },
+  {
+    "message": "What's the weather like today?",
+    "reply": "I'm sorry, but I don't have real-time access to weather information. You can check your local weather forecast using a weather app or website."
+  },
+  {
+    "message": "What's your favorite food?",
+    "reply": "As a chatbot, I don't have personal preferences when it comes to food. However, I can provide information about various cuisines or help you find recipes if you're looking for something specific!"
   }
 ]

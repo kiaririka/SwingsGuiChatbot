@@ -23,7 +23,7 @@ public class ChatApplication {
     public ChatApplication() {
         frame = new JFrame("Chat Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 500);
+        frame.setSize(500, 500);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
 
@@ -70,7 +70,7 @@ public class ChatApplication {
         frame.add(messageScrollPane, BorderLayout.CENTER);
 
         // Welcome message
-        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. \nNow tell me how I can assist you today?", false);
+        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. \nNow tell me how I can assist you today? \n Write \"what can i ask you?\" to get some samples question to ask me.", false);
 
         frame.setVisible(true);
 
@@ -88,15 +88,29 @@ public class ChatApplication {
         boolean isBotMessage = false;
         String reply = "";
 
-        for (int i = 0; i < messages.size(); i++) {
-            JsonObject messageObject = messages.get(i).getAsJsonObject();
-            String message = messageObject.get("message").getAsString();
-            String messageReply = messageObject.get("reply").getAsString();
+        if (messageContent.equalsIgnoreCase("what can I ask you?")) {
+            // Provide probable questions from the messages
+            StringBuilder questionList = new StringBuilder("Here are some probable questions you can ask me:\n");
 
-            if (messageContent.equalsIgnoreCase(message)) {
-                reply = messageReply;
-                isBotMessage = true;
-                break;
+            for (int i = 0; i < messages.size(); i++) {
+                JsonObject messageObject = messages.get(i).getAsJsonObject();
+                String message = messageObject.get("message").getAsString();
+                questionList.append("- ").append(message).append("\n");
+            }
+
+            reply = questionList.toString();
+            isBotMessage = true;
+        } else {
+            for (int i = 0; i < messages.size(); i++) {
+                JsonObject messageObject = messages.get(i).getAsJsonObject();
+                String message = messageObject.get("message").getAsString();
+                String messageReply = messageObject.get("reply").getAsString();
+
+                if (messageContent.equalsIgnoreCase(message)) {
+                    reply = messageReply;
+                    isBotMessage = true;
+                    break;
+                }
             }
         }
 
