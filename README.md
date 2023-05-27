@@ -24,9 +24,10 @@ The Discord chatbot extension is currently in development and the source code is
   
  1. git clone this rpositry.
  2. Open the project in your preferred Java IDE.
- 3. Build the project and resolve any dependencies (preferred maven) 
+ 3. Build the project and resolve any dependencies (preferred maven with intellij) 
  4. Run the ChatApplication class.
  5. The Chat Application GUI will open, and you can start interacting with the chatbot.
+ 6. Once the application starts, be a little patient as it takes some time for Bard to fetch the responses for reply.  
   
 
 ## Usage
