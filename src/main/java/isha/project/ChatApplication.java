@@ -61,7 +61,7 @@ public class ChatApplication {
         frame.add(messageScrollPane, BorderLayout.CENTER);
 
         // Welcome message
-        displayMessage("Bot", "Welcome to the chat! How can I assist you?", false);
+        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. \nI also have a Discord version which you can access from [https://github.com/kiaririka/HealthDiscordBotMaven].\nNow tell me how i can assist you today?", false);
 
         frame.setVisible(true);
     }
