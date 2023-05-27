@@ -57,7 +57,11 @@ public class ChatApplication {
         // Message panel for user and bot messages
         messagePanel = new JPanel();
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.Y_AXIS));
-        frame.add(messagePanel, BorderLayout.CENTER);
+        JScrollPane messageScrollPane = new JScrollPane(messagePanel);
+        frame.add(messageScrollPane, BorderLayout.CENTER);
+
+        // Welcome message
+        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. /help - To know more options to ask me How can I assist you?", false);
 
         frame.setVisible(true);
     }
@@ -79,11 +83,11 @@ public class ChatApplication {
             }
         }
 
-        displayMessage("You: " + messageContent, true);
-        displayMessage("Bot: " + reply, false);
+        displayMessage("You", messageContent, true);
+        displayMessage("Bot", reply, false);
     }
 
-    private void displayMessage(String message, boolean isUserMessage) {
+    private void displayMessage(String sender, String message, boolean isUserMessage) {
         JPanel messageWrapper = new JPanel();
         messageWrapper.setLayout(new BorderLayout());
         messageWrapper.setBorder(new EmptyBorder(5, 10, 5, 10));
@@ -92,7 +96,14 @@ public class ChatApplication {
         messageTextArea.setLineWrap(true);
         messageTextArea.setWrapStyleWord(true);
         messageTextArea.setBackground(isUserMessage ? Color.decode("#DCF8C6") : Color.decode("#E2E2E2"));
-        messageWrapper.add(messageTextArea, isUserMessage ? BorderLayout.WEST : BorderLayout.EAST);
+        messageTextArea.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        messageWrapper.add(messageTextArea, BorderLayout.CENTER);
+
+        JLabel senderLabel = new JLabel(sender);
+        senderLabel.setFont(senderLabel.getFont().deriveFont(Font.BOLD));
+        JPanel senderPanel = new JPanel(new FlowLayout(isUserMessage ? FlowLayout.LEFT : FlowLayout.RIGHT));
+        senderPanel.add(senderLabel);
+        messageWrapper.add(senderPanel, BorderLayout.NORTH);
 
         messagePanel.add(messageWrapper);
         messagePanel.revalidate();
