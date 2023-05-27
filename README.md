@@ -71,7 +71,7 @@ An extension of the Chat Application is being developed to create a Discord chat
 Specifications for the Discord chatbot extension:
 
 -   **Platform**: Discord
--   **Programming Language**: JavaScript (using the Discord.js library)
+-   **Programming Language**: Java (using Discord Java Api)
 -   **Features**: Real-time chat interaction, command-based communication, integration with the Google Bard API for responses.
 
 The Discord chatbot extension is currently in development and is avaialaible in the  following link [https://github.com/kiaririka/HealthDiscordBotMaven] will be deployed soon.
