@@ -11,6 +11,7 @@ import org.json.JSONObject;
 public class PostRequest {
 
     public static String post(String message) throws Exception {
+
         URL url = new URL("https://gpa-rho.vercel.app/getBard_Response");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
