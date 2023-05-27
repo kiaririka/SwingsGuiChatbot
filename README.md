@@ -22,7 +22,7 @@ The Discord chatbot extension is currently in development and the source code is
 
   To run the Chat Application locally on your machine, follow these steps:
   
- 1. git clone `https://github.com/your-username/chat-application.git`
+ 1. git clone this rpositry.
  2. Open the project in your preferred Java IDE.
  3. Build the project and resolve any dependencies.
  4. Run the ChatApplication class.
