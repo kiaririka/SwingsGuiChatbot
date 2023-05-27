@@ -1,8 +1,11 @@
 # SwingsGuiChatbot
 
 
-Welcome to the Chat Application! This is a simple chatbot application built using Java Swing. It allows users to interact with a chatbot, send messages, and receive replies.
-The Discord chatbot extension is currently in development and the source code is avaialaible in the following link [https://github.com/kiaririka/HealthDiscordBotMaven] will be deployed soon.
+Welcome to the Chat Application! This is a simple chatbot application built using Java Swing. It allows users to interact with a chatbot, send messages, and receive replies. 
+
+In the project Swings library is used for the Interface, org.json is used for parsing json data, GSON library is used to serialize and deserialize json object and finally a custom Google Bard Api is used for integrating the power of Google Bard in the project. 
+
+The Discord chatbot extension of this project is currently in development and the source code is avaialaible in the following link [[https://github.com/kiaririka/HealthDiscordBotMaven](https://github.com/kiaririka/HealthDiscordBotMaven)] will be deployed soon.
 
 
 ## Features
@@ -14,9 +17,7 @@ The Discord chatbot extension is currently in development and the source code is
  4. Messages are displayed in a conversation-like format, with
     a sender label for each message. 
  5. The chatbot responds to specific
-        commands such as /about, /help, and /talk.
- 6. Automatic scrolling to
-        the bottom of the chat window when new messages are rendered
+        commands you can look for specific questions to ask by writing "what can i ask you?" or just ask anything to increas you knowledge
 
 ## Getting Started
 
@@ -25,7 +26,7 @@ The Discord chatbot extension is currently in development and the source code is
  1. git clone this repositry.
  2. Open the project in your preferred Java IDE.
  3. Build the project and resolve any dependencies (preferred maven with intellij) 
- 4. It uses JDK,swings library and org.json. Be sure to add the dependencies before building.
+ 4. It uses JDK,swings library,GSON and org.json. Be sure to add the dependencies before building.
  5. Run the ChatApplication class.
  6. The Chat Application GUI will open, and you can start interacting with the chatbot.
  7. Once the application starts, be a little patient as it takes some time for Bard to fetch the responses for reply.  
