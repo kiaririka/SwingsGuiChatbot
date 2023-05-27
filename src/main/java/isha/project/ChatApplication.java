@@ -1,22 +1,31 @@
 package isha.project;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class ChatApplication {
     private JFrame frame;
     private JTextArea chatArea;
     private JTextField inputField;
     private JPanel messagePanel;
+    private JsonArray messages;
 
     public ChatApplication() {
         frame = new JFrame("Chat Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 500);
         frame.setLayout(new BorderLayout());
+        frame.setLocationRelativeTo(null);
 
         // Chat area
         chatArea = new JTextArea();
@@ -61,21 +70,39 @@ public class ChatApplication {
         frame.add(messageScrollPane, BorderLayout.CENTER);
 
         // Welcome message
-        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. \nI also have a Discord version which you can access from [https://github.com/kiaririka/HealthDiscordBotMaven].\nNow tell me how i can assist you today?", false);
+        displayMessage("Bot", "Welcome to the chat! I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to. \nNow tell me how I can assist you today?", false);
 
         frame.setVisible(true);
+
+        // Load messages from JSON file
+        loadMessages();
+    }
+
+    private void loadMessages() {
+        InputStream inputStream = getClass().getResourceAsStream("/messages.json");
+        JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
+        messages = JsonParser.parseReader(reader).getAsJsonArray();
     }
 
     private void processMessage(String messageContent) {
-        PostRequest request = new PostRequest();
-        String reply;
-        if (messageContent.equalsIgnoreCase("/about")) {
-            reply = "I am a chatbot made with the intent of helping anyone and everyone looking for a friend to talk to.\nFeel free to ask me anything or simply chat with me.";
-        } else if (messageContent.equalsIgnoreCase("/help")) {
-            reply = "Here are some options you can ask me:\n1. /about - To know more about me\n2. /help - To know more options to ask me\n3. /talk - To have a one-on-one talk session";
-        } else if (messageContent.equalsIgnoreCase("/talk")) {
-            reply = "Sure! Let's have a one-on-one talk.";
-        } else {
+        boolean isBotMessage = false;
+        String reply = "";
+
+        for (int i = 0; i < messages.size(); i++) {
+            JsonObject messageObject = messages.get(i).getAsJsonObject();
+            String message = messageObject.get("message").getAsString();
+            String messageReply = messageObject.get("reply").getAsString();
+
+            if (messageContent.equalsIgnoreCase(message)) {
+                reply = messageReply;
+                isBotMessage = true;
+                break;
+            }
+        }
+
+        if (!isBotMessage) {
+            // Fetch reply from PostRequest class
+            PostRequest request = new PostRequest();
             try {
                 reply = request.post(messageContent);
             } catch (Exception e) {

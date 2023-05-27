@@ -1,0 +1,26 @@
+[
+  {
+    "message": "Hi",
+    "reply": "Hello! How can I assist you today?"
+  },
+  {
+    "message": "What are the symptoms of COVID-19?",
+    "reply": "Common symptoms of COVID-19 include fever, cough, and difficulty breathing."
+  },
+  {
+    "message": "How can I prevent the spread of flu?",
+    "reply": "To prevent the spread of flu, make sure to wash your hands frequently, cover your mouth and nose when coughing or sneezing, and get vaccinated."
+  },
+  {
+    "message": "What should I do if I have a headache?",
+    "reply": "If you have a headache, you can try resting in a quiet and dark room, applying a cold or warm compress to your head, or taking over-the-counter pain relievers. If the headache persists or worsens, it's advisable to consult a healthcare professional."
+  },
+  {
+    "message": "Is it normal to feel tired all the time?",
+    "reply": "Feeling tired all the time could be a sign of various underlying health issues. It's recommended to maintain a balanced diet, get regular exercise, ensure sufficient sleep, and manage stress. If fatigue persists or is accompanied by other symptoms, it's best to consult a doctor."
+  },
+  {
+    "message": "What are some tips for maintaining a healthy lifestyle?",
+    "reply": "To maintain a healthy lifestyle, it's important to eat a balanced diet rich in fruits, vegetables, lean proteins, and whole grains. Stay physically active, get enough sleep, manage stress, avoid smoking and excessive alcohol consumption, and stay hydrated. Regular check-ups with a healthcare provider are also essential."
+  }
+]
