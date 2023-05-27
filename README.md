@@ -2,6 +2,7 @@
 
 
 Welcome to the Chat Application! This is a simple chatbot application built using Java Swing. It allows users to interact with a chatbot, send messages, and receive replies.
+The Discord chatbot extension is currently in development and the source code is avaialaible in the following link [https://github.com/kiaririka/HealthDiscordBotMaven] will be deployed soon.
 
 
 ## Features
