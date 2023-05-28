@@ -1,17 +1,15 @@
 package isha.project;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.json.JSONObject;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 public class PostRequest {
-
     public static String post(String message) throws Exception {
-
         URL url = new URL("https://gpa-rho.vercel.app/getBard_Response");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
@@ -22,16 +20,17 @@ public class PostRequest {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
+        StringBuilder response = new StringBuilder();
         String line;
-        String reply = null;
         while ((line = bufferedReader.readLine()) != null) {
-
-            JSONObject jsonObject = new JSONObject(line);
-
-            reply = (String) jsonObject.get("Content");
-//            System.out.println(reply);
+            response.append(line);
         }
+
+        // Use Gson to parse the JSON response
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(response.toString(), JsonObject.class);
+        String reply = jsonObject.get("Content").getAsString();
+
         return reply;
     }
-
 }

@@ -6,7 +6,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -96,6 +95,7 @@ public class ChatApplication {
                 JsonObject messageObject = messages.get(i).getAsJsonObject();
                 String message = messageObject.get("message").getAsString();
                 questionList.append("- ").append(message).append("\n");
+//                System.out.println(questionList);
             }
 
             reply = questionList.toString();
